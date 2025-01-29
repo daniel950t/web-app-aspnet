@@ -45,12 +45,14 @@ Use the following settings for your app registration:
 | **Front-channel logout URL**  | `https://localhost:5001/signout-oidc`              | Required value for this sample.|
 | **ClientSecret**              | _Value of the secret you have to add in Microsoft Entra admin center_      | Required value for this sample.|
 
+
+
 > :information_source: **Bold text** in the table matches (or is similar to) a UI element in the [Microsoft Entra admin center](https://entra.microsoft.com/#home), while `code formatting` indicates a value you enter into a text box or select in the Microsoft Entra admin center.
 
 ### 2. Configure the web app
 
 1. Open the _~/sign-in-webapp/WebApp.csrpoj_ in your code editor.
-1. Open the _appsettings.json_ file and modify the following code:
+1. Open the _appsettings.json_ file and modify the following code if you use a certificate:
 
     ```json
       "Instance": "https://login.microsoftonline.com/",
@@ -63,6 +65,15 @@ Use the following settings for your app registration:
           "ClientSecret": "Enter the certificate secret create in the Microsoft Entra admin center"
         }   
       ],
+    ```
+
+    or in case of Secret
+
+    ```json
+      "Instance": "https://login.microsoftonline.com/",
+      "TenantId": "Enter the tenant ID obtained from the Microsoft Entra admin center",
+      "ClientId": "Enter the client ID obtained from the Microsoft Entra admin center",
+      "ClientSecret": "Enter the secret here", 
     ```
 
 ## Run the application
